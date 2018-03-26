@@ -1,0 +1,20 @@
+
+<% if user_signed_in? %>
+
+		<h1>@<%= current_user.username %>'s Twitter Feed</h1>
+		<p>Here is what your "friends" are saying:</p>
+
+
+		<div>
+		    <% @following_tweets.each do |tweet| %>
+		        <div>
+			    <p>@<%= tweet.user.username %></p>
+			    <p><%= tweet.message.html_safe %></p>
+			</div>
+		    <% end %>
+		</div>
+
+<% else %>
+<h1>Welcome to MarshTwitter!</h1>
+  <a href="http://localhost:3000/tweets/new">Sign Up or Login</a>
+<% end %> 
